@@ -11,6 +11,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if user_signed_in? %>
+      <header>
+        <%= render "layouts/nav/public"  %>
+      </header>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>
